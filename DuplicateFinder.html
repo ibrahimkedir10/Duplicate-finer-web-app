@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>No Duplication</title>
+    </head>
+
+    <body>
+        <h1>No Duplication</h1>
+        <p>Fast demo of using array's indexOf to look for and block duplicate 
+            entries. Nothing fancy, it is case-sensitive and does not strip off 
+            white space. 
+        </p>
+        <input type="text" id="txtName" />
+        <input type='button' onclick="Add()" value="Add Name" />
+        <div id="divList"></div>
+
+        <script>
+            let myNames = []
+            function Add() {
+                let newName = document.getElementById("txtName").value;
+                if (myNames.indexOf(newName) == -1) {
+                    //alert("not found")
+                    myNames.push(newName);
+                    document.getElementById("txtName").value = "";
+                    document.getElementById("txtName").focus();
+                }
+                else {
+                    alert("Duplication Found")
+                }
+
+                alert(myNames)
+                document.getElementById("divList").innerHTML = myNames.join("<br />")
+            }
+        </script>
+    </body>
+
+</html>
